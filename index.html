@@ -1,32 +1,45 @@
 <title>KIS Student Academic Portal</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <style>
-  body {
+  html, body {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
+    height: 100%;
+    overflow: hidden; /* removes scrolling for app-like feel */
+    background-color: #000;
   }
 
-  .iframe-container {
-    width: 100%;
-    max-width: 1200px; /* prevents stretching on large screens */
+  .app-container {
+    width: 100vw;
     height: 100vh;
+    max-width: 480px; /* typical mobile width */
+    margin: 0 auto;
+    overflow: hidden;
   }
 
-  .iframe-container iframe {
+  iframe {
     width: 100%;
     height: 100%;
     border: none;
   }
 
-  /* Optional: adjust height for smaller devices */
-  @media (max-width: 768px) {
-    .iframe-container {
+  /* Hide on larger screens (optional strict mobile only) */
+  @media (min-width: 769px) {
+    body::before {
+      content: "Please open on a mobile device";
+      display: flex;
+      justify-content: center;
+      align-items: center;
       height: 100vh;
+      font-size: 18px;
+      color: #333;
+      background: #fff;
+    }
+
+    .app-container {
+      display: none;
     }
   }
 </style>
@@ -34,7 +47,7 @@
 
 <body>
 
-<div class="iframe-container">
+<div class="app-container">
   <iframe 
     src="https://script.google.com/macros/s/AKfycbxOoxydIArLjREWTunPQsnLp6HhFwImiBV9is8BOqzV6IWSpBvZ0lseP2srvPTISDyc/exec"
     allowfullscreen>
@@ -45,10 +58,7 @@
 window.onload = function() {
   const iframe = document.querySelector('iframe');
   if (iframe.requestFullscreen) {
-    iframe.requestFullscreen().catch(err => {
-      console.error("Fullscreen error:", err.message);
-    });
+    iframe.requestFullscreen().catch(() => {});
   }
 };
 </script>
-
