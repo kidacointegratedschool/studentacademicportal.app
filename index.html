@@ -2,61 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>KIS Academic Information Portal</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
+    
+    <meta http-equiv="refresh" content="0; url=https://script.google.com/macros/s/AKfycbxOoxydIArLjREWTunPQsnLp6HhFwImiBV9is8BOqzV6IWSpBvZ0lseP2srvPTISDyc/exec">
+    
     <style>
-        html, body {
+        /* Fallback styling while redirecting */
+        body {
             margin: 0;
             padding: 0;
-            height: 100%;
-            width: 100%;
-            /* Changed overflow to auto to allow scrolling when zoomed in */
-            overflow: auto; 
-            background-color: #ffffff; 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        }
-
-        .app-container {
-            width: 100%;
-            height: 100%;
-            max-width: 480px; 
-            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             background-color: #ffffff;
-            position: relative;
-            box-shadow: none; 
+            font-family: -apple-system, system-ui, sans-serif;
         }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: block;
-        }
-
-        @media (min-width: 769px) {
-            body {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background-color: #ffffff; 
-            }
-            .app-container {
-                height: 95vh;
-                border: 1px solid #eee; 
-                border-radius: 10px;
-            }
+        .loader {
+            color: #666;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
 
-<div class="app-container">
-    <iframe 
-        src="https://script.google.com/macros/s/AKfycbxOoxydIArLjREWTunPQsnLp6HhFwImiBV9is8BOqzV6IWSpBvZ0lseP2srvPTISDyc/exec" 
-        allow="geolocation; microphone; camera">
-    </iframe>
-</div>
+    <div class="loader">Loading Portal...</div>
 
+    <script>
+        /** * Method 2: JavaScript Redirect 
+         * This replaces the current history entry so the "Back" 
+         * button doesn't get stuck in a loop.
+         */
+        window.location.replace("https://script.google.com/macros/s/AKfycbxOoxydIArLjREWTunPQsnLp6HhFwImiBV9is8BOqzV6IWSpBvZ0lseP2srvPTISDyc/exec");
+    </script>
 </body>
 </html>
